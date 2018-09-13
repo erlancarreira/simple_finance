@@ -9,36 +9,40 @@
 </div>
 <div class="box box-info">
     <div class="box-header">
-      <h3 class="box-title">Clientes cadastrados</h3>
+      <h3 class="box-title">Debitos cadastrados</h3>
     </div>
     <form method="POST" class="rtw-form" id="form">
     
-    <?php if(!empty($list)): ?> 
+    <?php if(!empty($debitList)): ?> 
     <!-- /.box-header -->
     <div class="box-body" >
-        <table id="tableData" class="table table-bordered table-striped">
+        <table id="dataTable" class="table table-bordered table-striped" style="width:100%">
             <thead>
             <tr>
-              <th>ID</th>
-              <th>NOME</th>
-              <th>EMAIL</th>
+              <th class="sorting">ID</th>
+              <th>CLIENTE</th>
+              <th>DESCRICAO</th>
+              <th>METODO DE PAGAMENTO</th>
+              <th>DATA</th>
+              <th>STATUS</th>
+              <th>VALOR</th>
               <th>ACOES</th>
             </tr>
             </thead>
             <tbody>
 
-            <?php foreach($list as $value): ?> 
+            <?php foreach($debitList as $value): ?> 
             <tr> 
-              <th data-id="<?= $value['id']; ?>"><?= $value['id']; ?></th>              
-              <td data-name="<?= $value['name']; ?>"><?= $value['name']; ?></td>
-              
-              <input type="hidden" name="name" value="<?= $value['name']; ?>">
-              
-              <td data-email="<?= $value['email']; ?>"><?= $value['email']; ?></td>    
-              <input type="hidden" name="email" value="<?= $value['email']; ?>">  
+              <th><?= $value['id']; ?></th> 
+              <td><?= $value['name']; ?></td>  
+              <td><?= $value['description']; ?></td>     
+              <td><?= $this->getPayment($value['payment_method']); ?></td>
+              <td><?= $this->formatDate($value['date']); ?></td>
+              <td><span id="status" class="status label"><?= $this->getStatus($value['status']); ?></span></td>
+              <td><?= number_format($value['value'],2,",","."); ?></td>
+
               <td>
-                <button type="submit" id="verDebito" class="btn-sm btn btn-primary" onclick="pegarId(<?= $value['id']; ?>)">Ver</button>
-                <!-- <a href=" BASE; " class=" m-2">Ver</a>  -->  
+                <a href="<?= BASE; ?>" class="btn-sm btn btn-primary m-2">Ver</a>   
                 <button type="button" class="btn-sm btn btn-warning" id="input1" data-toggle="modal" onclick="pegarId(<?= $value['id']; ?>)" data-target="#modal-warning">
                 Editar
                 </button>

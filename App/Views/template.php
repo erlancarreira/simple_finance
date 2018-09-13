@@ -11,6 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?= BASE; ?>App/Assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= BASE; ?>App/Assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= BASE; ?>App/Assets/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -277,7 +279,7 @@ desired effect
           </a>
           <ul class="treeview-menu">
             <li><a href="<?= BASE; ?>client">Clientes</a></li>
-            <li><a href="<?= BASE; ?>">Debito</a></li>
+            <li><a href="<?= BASE; ?>debit/list">Debito</a></li>
           </ul>
         </li>
       </ul>
@@ -467,16 +469,27 @@ desired effect
 </div>
 <!-- ./wrapper -->
 
+
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
 <script type="text/javascript" src="<?= BASE; ?>App/Assets/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- dataTables -->
+<script src="<?= BASE; ?>App/Assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?= BASE; ?>App/Assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script type="text/javascript" src="<?= BASE; ?>App/Assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script type="text/javascript" src="<?= BASE; ?>App/Assets/dist/js/adminlte.min.js"></script>
+<script type="text/javascript"> const BASE = '<?= BASE; ?>' </script> <!-- URL PADRAO DO SITE -->
 
 <script type="text/javascript" src="<?= BASE; ?>App/Assets/js/ajax.js"></script>
+
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

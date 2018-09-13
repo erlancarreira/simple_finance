@@ -28,7 +28,9 @@ class debitController extends Controller {
 
     public function index() {
 
-        $this->data['listClient'] = $this->Debit->getClient();
+        $id = null;
+
+        $this->data['listClient'] = (!empty($id) ? $this->Debit->getClient($id) : $this->Debit->getClient());
 
         $this->loadTemplate('client/debit/index', $this->getData());
     }
@@ -63,6 +65,18 @@ class debitController extends Controller {
         
         $this->loadTemplate('client/debit/index', $this->getData());
         
+    }
+
+    public function list() 
+    {
+        
+        (!empty($_POST['id'])) ? $id = $_POST['id'] : null;   
+       
+        !$this->data['debitList'] = $this->Debit->getList(!empty($id) ? $id : '');
+          
+
+         $this->loadTemplate('client/debit/list/index', $this->getData());
+
     }
 
     /**

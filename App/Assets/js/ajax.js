@@ -77,6 +77,37 @@
 
 
 
+$(document).ready(function () {
+    
+    let table = $('#dataTable').DataTable({
+	    'paging'      : true,
+	    'lengthChange': true,
+	    'searching'   : true,
+	    'ordering'    : true,
+	    'info'        : true,
+	    'autoWidth'   : true,
+	    
+	    
+        lengthChange: false,
+        buttons: [ 'csv', 'excel', 'pdf' ]
+   
+	  
+
+      
+    })
+    table.buttons().container().appendTo( '#dataTable_wrapper .col-sm-6:eq(0)' )
+    
+   
+    $('#dataTable_filter').addClass('pull-right')
+    $('.dt-buttons button').addClass('btn btn-default')
+    // $('#dataTable_filter label').find('Search').text('Pesquisar')
+
+})
+
+
+
+
+
 
 function pegarId (id) {
     var input = document.createElement("input");
@@ -89,16 +120,14 @@ function pegarId (id) {
 		//append to form element that you want .
 	document.getElementById("form").appendChild(input);
 
-	return id // alerta 'seuid'	
-
-	
+	return id 	
 }
 
-let BASE = 'http://localhost/s_finance/'
+                                             
 
-let actions = {input1: BASE+'client/edit', input2: BASE+'client/delete'}
+let actions = { verDebito: BASE+'debit/list', input1: BASE+'client/edit', input2: BASE+'client/delete'}
 
-$("#input1, #input2").click(function() {
+$("#input1, #input2, #verDebito").click(function() {
     $(this).closest("form").attr("action", actions[this.id])
 })
 
@@ -139,6 +168,7 @@ $(function (){
 
 
 
+
 function pegarTabela(value) {
 
 	alert(value.getAttibut('data-name'))
@@ -146,6 +176,37 @@ function pegarTabela(value) {
 }
 
 
+// $(document).ready(function(){
+ 
+	let status = document.querySelectorAll("#status")
+	  
+    for (i=0; i < status.length; i++){
+        let element = status[i];
+       
+   	    switch(element.innerHTML) {
+	    	case 'PAGO':
+	           element.classList.toggle("label-success")
+	           break;
+
+	        case 'NAO PAGO':
+	           element.classList.toggle("label-danger")
+	           break;
+	        
+	        case 'PENDENTE':
+	           element.classList.toggle("label-warning")
+	           break;
+
+	        case '':
+	           element.innerHTML = 'INDEFINIDO'
+	           element.classList.toggle("label-danger")
+	           break;   
+	}
+
+}	
+
+	
+
+// })    
 
 
 
