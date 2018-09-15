@@ -106,24 +106,123 @@ $(document).ready(function () {
 
 
 
+/*
+
+
+// function pegarId (idClient, id) {
+//     var input = document.createElement("input");
+
+//     input.setAttribute("type", "hidden");
+
+// 	input.setAttribute("name", "id");
+
+// 	input.setAttribute("value", id);
+// 		//append to form element that you want .
+// 	document.getElementById("form").appendChild(input);
+
+// 	return id 
+
+// }	
+*/
+
+var forM = document.querySelector('#form')
+var fields = document.querySelectorAll('#form .clientEdit')
+var btnDel = document.querySelectorAll('#subActions button#input2')
+
+var btnClient = document.querySelectorAll('.client')
+
+
+btnClient.forEach(function(element) {
+
+	element.addEventListener("click", function(event){
+         
+        let field = event.target.value
+
+    	let client = document.createElement("input")
+			
+		client.setAttribute("type", "hidden")
+			
+		client.setAttribute("name", "clientId")
+		   		
+		client.setAttribute("value", field)
+
+		document.getElementById("form").appendChild(client)	    
+
+	})
+})    
+
+
+// for (var i = 0; i < fields.length; i++) {
+		
+// 	var field = fields[i]
+    
+    
+// 	field.addEventListener('click', ()=>{
+	    	
+//     console.log(field)   
+// 	        const clientId = document.createElement("input")
+			
+// 			clientId.setAttribute("type", "hidden")
+			
+// 			clientId.setAttribute("name", "clientId")
+		   		
+// 			clientId.setAttribute("value", fields[i].value)
+
+// 			document.getElementById("form").appendChild(clientId)	
+
+// 			// return btnEdit.value
+//     })
+
+	
+	
+// }
+
+
+	
+
+    	  // console.log(btnEdit[i], btnEdit.length)
 
 
 
-function pegarId (id) {
-    var input = document.createElement("input");
 
-    input.setAttribute("type", "hidden");
 
-	input.setAttribute("name", "id");
 
-	input.setAttribute("value", id);
-		//append to form element that you want .
-	document.getElementById("form").appendChild(input);
+// console.log(btnClient)
+	
 
-	return id 	
-}
 
-                                             
+
+
+// function getDebitId() { 
+
+// 	let btnClient = document.querySelector('#verDebito').getAttribute('data-clientId')
+//     const clientId = document.createElement("input")
+		
+// 		clientId.setAttribute("type", "hidden")
+		
+// 		clientId.setAttribute("name", "clientId")
+	   		
+// 		clientId.setAttribute("value", btnClient)
+
+// 		document.getElementById("form").appendChild(clientId)	
+	
+// }
+
+// { getDebitId() }
+
+// console.log(btnClient)
+	
+// console.log(idClient)
+// { getClientId() }
+
+	// const debitId = document.createElement("input")
+	// debitId.setAttribute("type", "hidden")
+	// debitId.setAttribute("name", "id")
+	// debitId.setAttribute("value", id)
+	// document.getElementById("form").appendChild(debitId)
+
+
+
 
 let actions = { verDebito: BASE+'debit/list', input1: BASE+'client/edit', input2: BASE+'client/delete'}
 
@@ -140,7 +239,7 @@ $(function (){
 	    const editEmail = document.querySelector('#editEmail')
 	    const userDel = document.querySelector('#deleteUser')
 	   
-	    
+	    // console.log(data)
 
 	    $.ajax({
 	        url: BASE+'ajax/list',
@@ -169,11 +268,11 @@ $(function (){
 
 
 
-function pegarTabela(value) {
+// function pegarTabela(value) {
 
-	alert(value.getAttibut('data-name'))
-	alert(value.name)
-}
+// 	alert(value.getAttibut('data-name'))
+// 	alert(value.name)
+// }
 
 
 // $(document).ready(function(){

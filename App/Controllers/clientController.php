@@ -178,10 +178,10 @@ class clientController extends Controller {
 
     public function delete()
     {   
+       
+        if(isset($_POST['clientId']) && !empty($_POST['clientId'])) {
 
-        if(isset($_POST['id']) && !empty($_POST['id'])) {
-
-            if($this->Client->delete($_POST['id'])) {
+            if($this->Client->delete($_POST['clientId'])) {
                 
                 $this->redirect('client/index');
             } 

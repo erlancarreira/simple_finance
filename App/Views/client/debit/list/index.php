@@ -22,7 +22,7 @@
               <th class="sorting">ID</th>
               <th>CLIENTE</th>
               <th>DESCRICAO</th>
-              <th>METODO DE PAGAMENTO</th>
+              <th>PAG</th>
               <th>DATA</th>
               <th>STATUS</th>
               <th>VALOR</th>
@@ -33,20 +33,20 @@
 
             <?php foreach($debitList as $value): ?> 
             <tr> 
-              <th><?= $value['id']; ?></th> 
+              <th><?= $value['clientId']; ?></th> 
               <td><?= $value['name']; ?></td>  
               <td><?= $value['description']; ?></td>     
               <td><?= $this->getPayment($value['payment_method']); ?></td>
               <td><?= $this->formatDate($value['date']); ?></td>
               <td><span id="status" class="status label"><?= $this->getStatus($value['status']); ?></span></td>
               <td><?= number_format($value['value'],2,",","."); ?></td>
-
+             
               <td>
-                <a href="<?= BASE; ?>" class="btn-sm btn btn-primary m-2">Ver</a>   
-                <button type="button" class="btn-sm btn btn-warning" id="input1" data-toggle="modal" onclick="pegarId(<?= $value['id']; ?>)" data-target="#modal-warning">
+                <a href="<?= BASE; ?>" class="btn-xs btn-sm btn btn-primary m-2">Ver</a>   
+                <button type="button" class="btn-xs btn-sm btn btn-warning" id="input1" data-toggle="modal" onclick="pegarId(<?= $value['clientId']; ?>, <?= $value['debitId']; ?>)" data-target="#modal-warning">
                 Editar
                 </button>
-                <button type="button" id="input2" class="btn-sm btn btn-danger" onclick="pegarId(<?= $value['id']; ?>)" data-toggle="modal" data-target="#modal-danger">
+                <button type="button" id="input2" class="btn-xs btn-sm btn btn-danger" onclick="pegarId(<?= $value['clientId']; ?>, <?= $value['debitId']; ?>)" data-toggle="modal" data-target="#modal-danger">
                 Excluir
                 </button>
               </td>     
@@ -64,7 +64,7 @@
               
     <div class="box-body">
       <div class="box-title">  
-        <h3>Você ainda não tem nenhum cliente cadastrado!</h3>
+        <h3>Este cliente ainda nao tem nenhum debito cadastrado!</h3>
       </div>
     </div>
     
