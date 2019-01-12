@@ -68,11 +68,13 @@ class ajaxController extends Controller {
 
     public function view() {
 
-    $data = array();    
+    $data = array();  
+
+     // var_dump($_POST); exit;  
 
     $dados_form = filter_input_array(INPUT_POST,FILTER_SANITIZE_MAGIC_QUOTES);
 
-        if($data = $this->Debit->getClient($dados_form['id'])) {
+        if($data = $this->Debit->getClient($dados_form['clientId'])) {
             // $data['return'] = ["alert-success","Login efetuado com sucesso!"];
             echo json_encode($data); 
         }

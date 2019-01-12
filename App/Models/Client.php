@@ -81,7 +81,7 @@ class Client extends Model
         
         $sql = "UPDATE client SET name = :name, email = :email WHERE id = :id"; 
         $sql = $this->db->prepare($sql);
-        $sql->bindValue(':id', $value['id']);
+        $sql->bindValue(':id', $value['clientId']);
         $sql->bindValue(':name', strtolower($value['name']));
         $sql->bindValue(':email', strtolower($value['email']));
 
@@ -104,7 +104,7 @@ class Client extends Model
 
     public function delete($value) 
     {
-        
+         
        //We start our transaction.
         
         $this->db->beginTransaction();

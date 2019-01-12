@@ -40,6 +40,17 @@ class Controller {
     
     }
 
+    public function filter_input($value) {
+        
+        if(isset($value) && !empty($value)) {        
+        
+            $value = filter_input_array(INPUT_POST, FILTER_SANITIZE_MAGIC_QUOTES);
+        }
+
+        return $value;
+    
+    }
+
     public function getPayment($i) {
         if(!empty($i)) {
            

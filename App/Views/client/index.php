@@ -29,20 +29,20 @@
 
             <?php foreach($list as $value): ?> 
             <tr> 
-              <th data-id="<?= $value['id']; ?>"><?= $value['id']; ?></th>              
+              <th><?= $value['id']; ?></th>              
               <td data-name="<?= $value['name']; ?>"><?= $value['name']; ?></td>
               
               <input type="hidden" name="name" value="<?= $value['name']; ?>">
               
               <td data-email="<?= $value['email']; ?>"><?= $value['email']; ?></td>    
               <input type="hidden" name="email" value="<?= $value['email']; ?>">  
-              <td>
-                <button type="submit" id="verDebito" class="btn-sm btn btn-primary" onclick="pegarId(<?= $value['id']; ?>)">Ver</button>
+              <td id="subActions">
+                <button type="submit" value="<?= $value['id']; ?>" id="verDebito" class="client btn-sm btn btn-primary" >Ver</button>
                 <!-- <a href=" BASE; " class=" m-2">Ver</a>  -->  
-                <button type="button" class="btn-sm btn btn-warning" id="input1" data-toggle="modal" onclick="pegarId(<?= $value['id']; ?>)" data-target="#modal-warning">
+                <button id="input1" value="<?= $value['id']; ?>" type="button" class="client btn-sm btn btn-warning"  data-toggle="modal" data-target="#modal-warning" data-edit="<?= $value['id']; ?>">
                 Editar
                 </button>
-                <button type="button" id="input2" class="btn-sm btn btn-danger" onclick="pegarId(<?= $value['id']; ?>)" data-toggle="modal" data-target="#modal-danger">
+                <button id="input2" value="<?= $value['id']; ?>" type="button" class="client btn-sm btn btn-danger" data-toggle="modal" data-target="#modal-danger" data-delete="<?= $value['id']; ?>">
                 Excluir
                 </button>
               </td>     
