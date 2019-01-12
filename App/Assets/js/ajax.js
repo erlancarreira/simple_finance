@@ -125,7 +125,7 @@ function pegarId (id) {
 
                                              
 
-let actions = { verDebito: BASE+'debit/list', input1: BASE+'client/edit', input2: BASE+'client/delete'}
+let actions = { verDebito: BASE+'debit/view', input1: BASE+'client/edit', input2: BASE+'client/delete'}
 
 $("#input1, #input2, #verDebito").click(function() {
     $(this).closest("form").attr("action", actions[this.id])
@@ -143,7 +143,7 @@ $(function (){
 	    
 
 	    $.ajax({
-	        url: BASE+'ajax/list',
+	        url: BASE+'ajax/view',
 	        data: data,
 	        type: 'POST',
 	        dataType: 'json',

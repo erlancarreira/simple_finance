@@ -67,7 +67,7 @@ class debitController extends Controller {
         
     }
 
-    public function list() 
+    public function view() 
     {
         
         (!empty($_POST['id'])) ? $id = $_POST['id'] : null;   
@@ -75,7 +75,7 @@ class debitController extends Controller {
         !$this->data['debitList'] = $this->Debit->getList(!empty($id) ? $id : '');
           
 
-         $this->loadTemplate('client/debit/list/index', $this->getData());
+         $this->loadTemplate('client/debit/view/index', $this->getData());
 
     }
 

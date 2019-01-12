@@ -66,7 +66,7 @@ class ajaxController extends Controller {
 
     }
 
-    public function list() {
+    public function view() {
 
     $data = array();    
 

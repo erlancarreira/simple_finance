@@ -6,15 +6,15 @@ global $config;
 $config = array();
 
 if (ENVIRONMENT == 'development') {
-    define("BASE", "http://localhost/s_finance/");
+    define("BASE", "https://simple-finance-erlancarreira.c9users.io/");
     define("BASEADMIN", "http://localhost/s_finance/App/admin/");
-    $config['dbname'] = 'projeto_er';
+    $config['dbname'] = 'c9';
     $config['host'] = 'localhost';
-    $config['dbuser'] = 'root';
+    $config['dbuser'] = 'erlancarreira';
     $config['dbpass'] = '';
 } else {
     define("BASE", "https://seudominio_real/");
-    define("BASEADMIN", "https://seudominio_real/admin/");
+    define("BASEADMIN", "https://simple-finance-erlancarreira.c9users.io/");
     $config['dbname'] = 'dbname';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'user';

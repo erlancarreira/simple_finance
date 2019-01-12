@@ -73,7 +73,7 @@ class Debit extends Model
 
     public function getList($id = null) {
 
-        $sql = "SELECT c.id, c.name, c.email, d.client_id, d.name description, d.payment_method, d.date, d.status, d.value 
+        $sql = "SELECT c.id, c.name, c.email, d.client_id, d.name description, d.payment_method, d.date, d.status, d.value  
                 FROM debit AS d 
                 JOIN client AS c 
                 ON c.id = d.client_id ";

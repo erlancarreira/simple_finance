@@ -51,11 +51,14 @@
                 </button>
               </td>     
             </tr>
+            
             <?php endforeach; ?> 
             </tbody>
             
         </table>
+        
     </div>
+    
     <!-- /.box-body -->
     <?php $this->loadView('client/edit/index', $this->getData()); ?>
     <?php $this->loadView('client/delete/index', $this->getData()); ?>

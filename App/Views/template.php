@@ -279,7 +279,7 @@ desired effect
           </a>
           <ul class="treeview-menu">
             <li><a href="<?= BASE; ?>client">Clientes</a></li>
-            <li><a href="<?= BASE; ?>debit/list">Debito</a></li>
+            <li><a href="<?= BASE; ?>debit/view">Debito</a></li>
           </ul>
         </li>
       </ul>
